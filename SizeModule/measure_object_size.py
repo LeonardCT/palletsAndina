@@ -12,7 +12,9 @@ aruco_dict = cv2.aruco.getPredefinedDictionary(cv2.aruco.DICT_5X5_50)
 detector = HomogeneousBgDetector()
 
 # Load Image
-img = cv2.imread("phone_aruco_marker_2.jpg")
+path="C:\\Users\\leonard\\palletsAndina\\SizeModule\\arucoPalletTest.png"
+img = cv2.imread(path)
+
 
 # Get Aruco marker
 corners, _, _ = cv2.aruco.detectMarkers(img, aruco_dict, parameters=parameters)

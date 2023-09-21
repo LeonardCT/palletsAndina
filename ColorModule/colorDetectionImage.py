@@ -6,7 +6,7 @@ from util import get_limits
 yellow = [0, 255, 255]  # yellow in BGR colorspace
 
 # Cargar la imagen que deseas analizar
-image_path = 'C:/Users/leonard/Pictures/PalletsNoAndina/palletRed.png'
+image_path = 'C:/Users/leonard/Pictures/Pallet Andina/P_A7.jpeg'
 frame = cv2.imread(image_path)
 
 hsvImage = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
