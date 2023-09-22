@@ -12,9 +12,9 @@ Semana 1------------------------------------Viernes 22 de Septiembre------------
 
 Diseñar y desarrollar un algoritmo de detección de objetos que identifique los pallets en las imágenes.
 Implementar reglas de filtrado basadas en características visuales para mejorar la precisión de la detección de pallets.
-Integrar el módulo de detección de pallets con el sistema principal.
+Integrar el módulo de detección de pallets con el sistema principal.(aca tambien se puede jugar con el filtrado de colores para hacer la detección)
 
-(aca tambien se puede jugar con el filtrado de colores para hacer la detección)
+
 															Lorens
 
 
@@ -55,7 +55,7 @@ Investigar y desarrollar técnicas de homografía para corregir la perspectiva e
 Implementar el módulo de homografía para asegurar la correcta detección y clasificación de pallets en imágenes con variaciones de perspectiva.
 Integrar el módulo de homografía con el sistema principal.
 
-														Leonardo-Emi
+														        Leonardo-Emi
 
 
 Deadline------------------29 de septiembre--------------------------------------------------------------------
