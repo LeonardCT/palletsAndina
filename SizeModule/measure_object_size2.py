@@ -20,8 +20,6 @@ path3="C:\\Users\\leonard\\palletsAndina\\SizeModule\\arucoPalletTest.png"
 img = cv2.imread(path3)
 
 
-
-
 # Get Aruco marker
 corners, _, _ = cv2.aruco.detectMarkers(img, aruco_dict, parameters=parameters)
 
@@ -43,7 +41,7 @@ for cnt in contours:
     object_area = cv2.contourArea(cnt) / (pixel_cm_ratio ** 2)
 
     # Determine if the object has an area greater than 25 cm^2 and label it accordingly
-    if object_area > 500:
+    if object_area > 1000:
         label = "andina"
     else:
         label = "no andina"
@@ -56,26 +54,15 @@ for cnt in contours:
     object_width = w / pixel_cm_ratio
     object_height = h / pixel_cm_ratio
 
-    # Calculate the area as the multiplication of width and height
-    object_area_calculated = object_width * object_height
-
-    # Print the Width, Height, and Calculated Area
-    print("Object Width: {} cm".format(round(object_width, 1)))
-    print("Object Height: {} cm".format(round(object_height, 1)))
-    print("Calculated Area: {} cm^2".format(round(object_area_calculated, 1)))
-
     # Display rectangle
     box = cv2.boxPoints(rect)
     box = np.intp(box)
 
     cv2.circle(img, (int(x), int(y)), 5, (0, 0, 255), -1)
     cv2.polylines(img, [box], True, (255, 0, 0), 2)
-    cv2.putText(img, "Width {} cm".format(round(object_width, 1)), (int(x - 100), int(y - 20)), cv2.FONT_HERSHEY_PLAIN, 2,
-                (100, 200, 0), 2)
-    cv2.putText(img, "Height {} cm".format(round(object_height, 1)), (int(x - 100), int(y + 15)),
-                cv2.FONT_HERSHEY_PLAIN, 2, (100, 200, 0), 2)
-    cv2.putText(img, "Area {} cm^2".format(round(object_area, 1)), (int(x - 100), int(y + 50)), cv2.FONT_HERSHEY_PLAIN,
-                2, (0, 0, 255), 2)
+    cv2.putText(img, "Width {} cm".format(round(object_width, 1)), (int(x - 100), int(y - 20)), cv2.FONT_HERSHEY_PLAIN, 2, (100, 200, 0), 2)
+    cv2.putText(img, "Height {} cm".format(round(object_height, 1)), (int(x - 100), int(y + 15)), cv2.FONT_HERSHEY_PLAIN, 2, (100, 200, 0), 2)
+    cv2.putText(img, "Area {} cm^2".format(round(object_area, 1)), (int(x - 100), int(y + 50)), cv2.FONT_HERSHEY_PLAIN, 2, (0, 0, 255), 2)
     cv2.putText(img, label, (int(x - 100), int(y + 85)), cv2.FONT_HERSHEY_PLAIN, 2, (0, 0, 255), 2)
 
 cv2.imshow("Image", img)

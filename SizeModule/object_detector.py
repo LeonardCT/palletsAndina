@@ -1,6 +1,5 @@
 import cv2
 
-
 class HomogeneousBgDetector():
     def __init__(self):
         pass
@@ -15,17 +14,23 @@ class HomogeneousBgDetector():
         # Find contours
         contours, _ = cv2.findContours(mask, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
 
-        #cv2.imshow("mask", mask)
-        objects_contours = []
+        # Initialize variables to track the two largest objects
+        largest_areas = [0, 0]
+        largest_contours = [None, None]
 
         for cnt in contours:
             area = cv2.contourArea(cnt)
-            if area > 2000:
-                #cnt = cv2.approxPolyDP(cnt, 0.03*cv2.arcLength(cnt, True), True)
-                objects_contours.append(cnt)
 
-        return objects_contours
+            # If the current contour is larger than the second largest but smaller than the largest, update the second largest
+            if area > largest_areas[1]:
+                if area > largest_areas[0]:
+                    largest_areas[1] = largest_areas[0]
+                    largest_contours[1] = largest_contours[0]
+                    largest_areas[0] = area
+                    largest_contours[0] = cnt
+                else:
+                    largest_areas[1] = area
+                    largest_contours[1] = cnt
 
-    # def get_objects_rect(self):
-    #     box = cv2.boxPoints(rect)  # cv2.boxPoints(rect) for OpenCV 3.x
-    #     box = np.int0(box)
+        # Return the contours of the two largest objects
+        return [contour for contour in largest_contours if contour is not None]
