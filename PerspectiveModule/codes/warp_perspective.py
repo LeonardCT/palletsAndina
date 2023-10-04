@@ -16,7 +16,7 @@ def biggest_contour(contours):
     return biggest
 
 
-img = cv2.imread('document.jpg')
+img = cv2.imread('input/document.jpg')
 img_original = img.copy()
 
 # Image modification
