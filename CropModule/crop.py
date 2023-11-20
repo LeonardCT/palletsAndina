@@ -25,20 +25,20 @@ def enmascarar_con_fondo_blanco(imagen, bounding_box):
 
 # Ejemplo CROP:
 imagen = cv2.imread("test.png")
-bounding_box = (300, 0, 500, 650)
+bounding_box = (350, 150, 400, 380)
 imagen_recortada = recortar_imagen(imagen, bounding_box)
 cv2.imwrite("imagen_recortada.png", imagen_recortada)
 
 
 # Ejemplo MASCARA NEGRA:
 imagen = cv2.imread("test.png")
-bounding_box = (300, 0, 500, 650)
+bounding_box = (350, 150, 400, 380)
 imagen_enmascarada = enmascarar_imagen(imagen, bounding_box)
 cv2.imwrite("imagen_enmascarada.png", imagen_enmascarada)
 
 
 # Ejemplo MASCARA BLANCA:
 imagen = cv2.imread("test.png")
-bounding_box = (300, 0, 500, 650)
+bounding_box = (350, 150, 400, 380)
 imagen_blanca = enmascarar_con_fondo_blanco(imagen, bounding_box)
 cv2.imwrite("imagen_enmascarada_blanca.png", imagen_blanca)
